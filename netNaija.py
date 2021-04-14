@@ -65,12 +65,12 @@ for page in range(1,page_last):
     page_html = driver.page_source
     page_soup = BeautifulSoup(page_html, "html.parser")
 
-    all_movies = page_soup.find_all("article",{"class":"a-file"})
+    all_movies = page_soup.find_all("article",{"class":"file-one shadowv"})
     for movie in all_movies:
         dic = {} 
         excludedLang= ['Thai', 'Chinese', 'Korean', 'Portuguese', 'Turkish', 'Spanish', 'Vietnamese', 'Indonesian', 'French']
         try:
-            movie = movie.find("h3","file-name")
+            movie = movie.find("h2")
             movie_title = movie.text
         except:
             continue
