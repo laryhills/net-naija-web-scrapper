@@ -114,13 +114,15 @@ for page in range(1,page_last):
                     dic["IMDB"] = imdb_soup.find('span',{'itemprop':'ratingValue'}).text
                 except:               
                     dic["IMDB"] = None
-                download_links = m_soup.find_all('a',{'class' : 'button download'})
+                    
+                dl_class = m_soup.find('div',{'class':'download-block'})
+                download_links = dl_class.find_all('a',{'class' : 'btn'})
                 try:
-                    dic["Download Link"] = download_links[1]['href']
+                    dic["Download Link"] = download_links[0]['href']
                 except:
                     dic["Download Link"] = None
                 try:
-                    dic["Subtitle Link"] = download_links[2]['href']
+                    dic["Subtitle Link"] = download_links[1]['href']
                 except:
                     dic["Subtitle Link"] = None
             except:
