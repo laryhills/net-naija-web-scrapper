@@ -68,7 +68,7 @@ for page in range(1,page_last):
     all_movies = page_soup.find_all("article",{"class":"file-one shadow"})
     for movie in all_movies:
         dic = {} 
-        excludedLang= ['Thai', 'Chinese', 'Korean', 'Portuguese', 'Turkish', 'Spanish', 'Vietnamese', 'Indonesian', 'French']
+        excludedLang= ['Thai', 'Chinese', 'Korean', 'Portuguese', 'Turkish', 'Spanish', 'Vietnamese', 'Indonesian', 'French', 'Indian', 'Japanese']
         try:
             movie = movie.find("h2")
             movie_title = movie.text
