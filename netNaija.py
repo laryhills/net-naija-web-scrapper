@@ -68,7 +68,7 @@ for page in range(1,page_last):
     all_movies = page_soup.find_all("article",{"class":"file-one shadow"})
     for movie in all_movies:
         dic = {} 
-        excludedLang= ['Thai', 'Chinese', 'Korean', 'Portuguese', 'Turkish', 'Spanish', 'Vietnamese', 'Indonesian', 'French', 'Indian', 'Japanese']
+        excludedLang= ['Thai', 'Chinese', 'Korean', 'Portuguese', 'Turkish', 'Spanish', 'Vietnamese', 'Indonesian', 'French', 'Indian', 'Japanese','Russian','Italian']
         try:
             movie = movie.find("h2")
             movie_title = movie.text
@@ -112,7 +112,7 @@ for page in range(1,page_last):
                     imdb_c = imdb_r.content
                     imdb_soup = BeautifulSoup(imdb_c, "html.parser") 
                     #dic["IMDB"] = imdb_soup.find('span',{'itemprop':'ratingValue'}).text
-                    dic["IMDB"] = imdb_soup.find('span',{'class':'AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV'})
+                    dic["IMDB"] = imdb_soup.find('span',{'class':'AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV'}).text
                 except:               
                     dic["IMDB"] = None
                     
