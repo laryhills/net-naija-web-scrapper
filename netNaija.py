@@ -118,12 +118,13 @@ for page in range(1,page_last):
                     
                 dl_class = m_soup.find('div',{'class':'download-block'})
                 download_links = dl_class.find_all('a',{'class' : 'btn'})
+                main_url = 'https://www.thenetnaija.com'
                 try:
-                    dic["Download Link"] = download_links[0]['href']
+                    dic["Download Link"] = main_url + download_links[0]['href']
                 except:
                     dic["Download Link"] = None
                 try:
-                    dic["Subtitle Link"] = download_links[1]['href']
+                    dic["Subtitle Link"] = main_url + download_links[1]['href']
                 except:
                     dic["Subtitle Link"] = None
             except:
