@@ -111,7 +111,8 @@ for page in range(1,page_last):
                     imdb_r = requests.get(imdb_url, headers={'User-agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'})
                     imdb_c = imdb_r.content
                     imdb_soup = BeautifulSoup(imdb_c, "html.parser") 
-                    dic["IMDB"] = imdb_soup.find('span',{'itemprop':'ratingValue'}).text
+                    #dic["IMDB"] = imdb_soup.find('span',{'itemprop':'ratingValue'}).text
+                    dic["IMDB"] = imdb_soup.find('span',{'class':'AggregateRatingButton__RatingScore-sc-1ll29m0-1 iTLWoV'})
                 except:               
                     dic["IMDB"] = None
                     
@@ -146,4 +147,3 @@ df.index += 1
 filename = "Latest Movies From Net Naija as at "+str(today)+".csv"
 df.to_csv(dir_path+'/'+filename)
 print(filename+' created')    
-
